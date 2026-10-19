@@ -1,3 +1,4 @@
+import {characters} from './characters.js';
 const rows = [
  ['ENFP','낭만을 줍는 탐험가','감천·남포','골목마다 새로운 이야기를 발견하는 당신. 알록달록한 풍경과 우연한 만남이 하루를 특별하게 만들어요.','감천문화마을|보수동책방골목|국제시장|BIFF광장','골목 끝에 만난 설렘',[0,4,7,10,12]],
  ['ENFJ','다정한 여행의 리더','광안리·수영','함께하는 사람의 웃음이 가장 좋은 기념품인 당신. 바다와 골목을 나누어 걸으며 추억을 모아보세요.','수영사적공원|망미단길|광안리해수욕장|민락수변공원','함께여서 빛나는 바다',[1,0,8,13,5]],
@@ -16,4 +17,4 @@ const rows = [
  ['ISTP','자유로운 해안 탐험가','이기대·오륙도','내 속도로 움직이며 풍경을 경험하는 당신. 바위와 파도가 만드는 해안의 표정을 만나보세요.','동생말|이기대 해안산책로|오륙도 해맞이공원|오륙도 스카이워크','발걸음에 맡긴 하루',[7,6,11,4,14]],
  ['ISTJ','차분한 기록 여행자','태종대·영도','하나씩 꼼꼼히 살펴보며 기억을 쌓는 당신. 바다와 역사가 있는 장소를 차분히 기록해요.','태종대|태종대 전망대|영도등대|국립해양박물관','오래 남는 여행의 기록',[9,5,3,15,1]]
 ];
-export const results=Object.fromEntries(rows.map(([type,nickname,region,description,places,playlistTitle,songIds])=>[type,{type,nickname,region,description,image:`assets/regions/${type}.svg`,tags:[type[0]==='E'?'함께하는 즐거움':'나만의 여유',type[1]==='N'?'새로운 영감':'선명한 순간',type[3]==='P'?'자유로운 발걸음':'차근차근 탐방'],places:places.split('|'),playlistTitle,songIds}]));
+export const results=Object.fromEntries(rows.map(([type,nickname,region,description,places,playlistTitle,songIds])=>[type,{type,nickname,region,description,image:`assets/regions/${type}.svg`,character:characters[type],tags:characters[type].traits,places:places.split('|'),playlistTitle,songIds}]));
