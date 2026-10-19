@@ -1,0 +1,2 @@
+import {results} from './results.js';
+export const courses=Object.fromEntries(Object.values(results).map(r=>[r.type,{title:`${r.region}, ${r.nickname}의 작은 퀘스트`,description:'시간대는 분위기를 위한 제안이에요. 실제 운영시간과는 다르니, 공식 안내·교통편·날씨를 확인하고 편하게 조정해 주세요.',stops:r.places.map((name,i)=>({name,note:[`첫 장면은 ${name}. 주변 풍경을 살펴보며 여행을 시작해요.`,`${name}에서 마음에 드는 장면을 기록해 보세요.`,`${name}에서 잠시 걸음을 늦추고 주변을 느껴보세요.`,`${name}에서 오늘 가장 좋았던 순간을 떠올려 보세요.`][i],status:'운영 정보 검증 필요'}))}]));

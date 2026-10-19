@@ -1,0 +1,16 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {questions} from '../js/data/questions.js';
+import {results} from '../js/data/results.js';
+import {courses} from '../js/data/courses.js';
+import {playlists} from '../js/data/playlists.js';
+import {calculateType,setAnswer,isType,mapUrl,musicUrl} from '../js/core.js';
+import {Analytics} from '../js/analytics.js';
+import {access} from 'node:fs/promises';
+test('12 questions, three per axis, unique IDs',()=>{assert.equal(questions.length,12);assert.equal(new Set(questions.map(q=>q.id)).size,12);for(const axis of ['EI','SN','TF','JP'])assert.equal(questions.filter(q=>q.axis===axis).length,3);});
+test('all 4096 answer combinations use majority scoring and reach all 16 types',()=>{const seen=new Set();for(let mask=0;mask<4096;mask++){const answers=questions.map((q,i)=>q.options[(mask>>i)&1].value);const type=calculateType(answers);const expected=['EI','SN','TF','JP'].map(axis=>answers.filter(v=>v===axis[0]).length>=2?axis[0]:axis[1]).join('');assert.equal(type,expected);seen.add(type);}assert.equal(seen.size,16);});
+test('answer edits replace values without mutating or accumulating',()=>{const answers=questions.map(q=>q.options[0].value);let changed=setAnswer(answers,0,'I');changed=setAnswer(changed,4,'I');assert.equal(calculateType(changed),'ISTJ');assert.equal(calculateType(answers),'ESTJ');assert.deepEqual(setAnswer(changed,4,'I'),changed);});
+test('invalid input rejected',()=>{for(const a of [[],Array(12).fill(null),Array(12).fill('EI')])assert.throws(()=>calculateType(a));assert.throws(()=>setAnswer([],20,'E'));assert.throws(()=>setAnswer([],0,'N'));assert.equal(isType('<img>'),false);assert.equal(isType('ENFP'),true);});
+test('16 complete results, distinct courses and playlists, existing images',async()=>{assert.equal(Object.keys(results).length,16);const routes=new Set(),tracks=new Set();for(const r of Object.values(results)){assert.ok(isType(r.type));assert.ok(r.nickname&&r.description&&r.region);await access(r.image);const c=courses[r.type];assert.ok(c.stops.length>=4&&c.stops.length<=6);c.stops.forEach(s=>assert.ok(s.name&&s.note&&s.status));routes.add(c.stops.map(s=>s.name).join('|'));const p=playlists[r.type];assert.ok(p.title&&p.description&&p.tracks.length>=5&&p.tracks.length<=8);p.tracks.forEach(s=>assert.ok(s.title&&s.artist));tracks.add(p.tracks.map(s=>s.title).join('|'));}assert.equal(routes.size,16);assert.equal(tracks.size,16);});
+test('analytics consent, empty ID and deduplication',()=>{const events=[];let loads=0;const a=new Analytics({id:'G-TEST123',send:(...args)=>events.push(args),load:()=>loads++});assert.equal(a.event('test_start',{},'1'),false);a.consent(true);a.consent(true);assert.equal(loads,1);assert.equal(a.event('test_start',{},'1'),true);assert.equal(a.event('test_start',{},'1'),false);a.consent(false);assert.equal(a.event('test_complete',{},'2'),false);a.consent(true);assert.equal(a.event('test_start',{},'1'),false);assert.equal(events.length,1);const empty=new Analytics();empty.consent(true);assert.equal(empty.event('test_start'),false);});
+test('external search links encode data safely',()=>{assert.equal(new URL(mapUrl('부산 A&B')).hostname,'map.naver.com');assert.equal(new URL(musicUrl('A&B','가수')).searchParams.get('q'),'가수 A&B');});

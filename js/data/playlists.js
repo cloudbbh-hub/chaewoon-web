@@ -1,0 +1,3 @@
+import {results} from './results.js';
+export const songs=[['Dynamite','BTS'],['여행','볼빨간사춘기'],['한 페이지가 될 수 있게','DAY6'],['밤편지','아이유'],['주저하는 연인들을 위해','잔나비'],['너의 의미','아이유'],['Hype Boy','NewJeans'],['TOMBOY','혁오'],['사건의 지평선','윤하'],['Viva La Vida','Coldplay'],['우주를 줄게','볼빨간사춘기'],['산책','백예린'],['와르르 ♥','Colde'],['Dolphin','오마이걸'],['Dancing Queen','ABBA'],['시작','박기영']].map(([title,artist])=>({title,artist}));
+export const playlists=Object.fromEntries(Object.values(results).map(r=>[r.type,{title:r.playlistTitle,description:`${r.region}의 작은 길을 걸을 때, 이어폰 너머로 흐르면 좋을 다섯 곡. 서두르지 말고 오늘의 마음에 맞는 노래를 골라 보세요.`,tracks:r.songIds.map(id=>({...songs[id]}))}]));
