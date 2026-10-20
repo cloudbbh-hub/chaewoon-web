@@ -75,7 +75,7 @@ tests/core.test.js         주요 로직 테스트
 
 ## Google Analytics 4
 
-`js/config.js`의 `gaMeasurementId`에 실제 운영 속성 ID를 입력합니다. 기본값은 빈 문자열이며 임의 운영 ID를 넣지 않았습니다. 미설정 상태에서는 분석 스크립트나 이벤트가 전송되지 않습니다.
+`js/config.js`의 `gaMeasurementId`에 제공받은 운영 ID `G-LNQ25QS8WZ`를 설정했습니다. 단일 HTML과 해시 라우터 구조이므로 분석 스크립트는 동의 후 한 번만 로드합니다. ID를 빈 문자열로 바꾸면 분석을 비활성화합니다.
 
 사용자가 명시적으로 동의할 때만 GA 스크립트를 로드합니다. 미동의 시 이벤트를 저장/재전송하지 않습니다. 동의 철회 시 전송을 차단하고 consent를 denied로 갱신합니다. 이미 전송된 기록이나 Google 쿠키의 삭제를 제공하는 것은 아닙니다. 광고 기능은 비활성화합니다. 실제 서비스 운영자는 적용되는 개인정보 처리방침, 보유 기간, 국외 이전 안내와 사업자 정보를 추가해야 합니다.
 
@@ -89,7 +89,7 @@ tests/core.test.js         주요 로직 테스트
 | playlist_view | 음악 화면 진입 | mbti_type |
 | result_share | 네이티브 공유 성공 또는 복사 성공 | mbti_type, method |
 
-답변 값, 이름, 위치 등은 별도 전송하지 않습니다. 결과 유형은 동의 후 전달됩니다. 시작/완료는 실행당 한 번, 공유는 페이지 방문당 한 번, 화면 조회는 실제 진입당 한 번 전송합니다. 답변 변경은 새 상호작용으로 집계합니다. 자동 page_view는 껐으며 GA 관리 화면의 향상된 측정 중 브라우저 기록 변경 기반 페이지 조회도 꺼 중복 집계를 피하세요. GA가 자동 수집하는 접속 메타데이터는 Google 정책을 따릅니다. 실제 ID 미제공으로 운영 GA 수신 검증은 수행하지 않았습니다. 실제 ID 설정 후 DebugView/네트워크에서 동의·철회·광고 차단 환경을 확인하세요.
+답변 값, 이름, 위치 등은 별도 전송하지 않습니다. 결과 유형은 동의 후 전달됩니다. 시작/완료는 실행당 한 번, 공유는 페이지 방문당 한 번, 화면 조회는 실제 진입당 한 번 전송합니다. 답변 변경은 새 상호작용으로 집계합니다. 자동 page_view는 껐으며 GA 관리 화면의 향상된 측정 중 브라우저 기록 변경 기반 페이지 조회도 꺼 중복 집계를 피하세요. GA가 자동 수집하는 접속 메타데이터는 Google 정책을 따릅니다. 각 화면 진입과 최초 동의 시 현재 화면의 `page_view`를 전송합니다. 운영 GA 보고서의 수신 여부는 아직 검증하지 않았습니다. DebugView/네트워크에서 동의·철회·광고 차단 환경을 확인하세요.
 
 ## 배포
 
@@ -102,3 +102,9 @@ GitHub Pages, Netlify, Cloudflare Pages 등의 정적 호스팅에 `index.html`,
 ## 참고
 
 부산의 주요 지역 소개는 [Visit Busan 관광 아카이브](https://visitbusan.net/archive/dataCollection/view.nm?collectionSid=DATACLID000023) 및 [공식 관광 사이트](https://www.visitbusan.net/)를 참고했습니다. 외부 사진이나 본문을 복제하지 않았습니다. 음악 일부의 명칭은 [BTS 공식 Dynamite 소개](https://bts.ibighit.com/kor/discography/detail/dynamite.html)에서 확인했습니다. 이 참고는 각 방문 장소의 현재 운영 정보를 검증한 것으로 해석하지 않습니다.
+
+### GitHub Pages 운영 주소
+
+https://cloudbbh-hub.github.io/chaewoon-web/
+
+Pages는 main 브랜치의 루트(/)에서 배포합니다. 루트 index.html이 메인페이지이며 .nojekyll로 정적 파일을 그대로 제공합니다. main에 push하면 재배포됩니다.
