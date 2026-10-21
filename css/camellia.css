@@ -20,3 +20,19 @@ body{background:radial-gradient(ellipse at top right,#ffeef1,transparent 60%),re
 :focus-visible{outline:3px solid #a24f70;outline-offset:4px}
 @media(max-width:1000px) and (min-width:761px){.village-scene .scene-message{width:49%;right:3%;padding:20px}.scene-message h2{font-size:28px}}
 @media(max-width:760px){.game-sidebar{background:#eac0cf}.village-scene{height:555px}.village-scene .scene-message{top:18px;left:16px;right:16px;width:auto;max-width:none;transform:none;padding:20px}.village-scene .scene-traveler{width:80%;height:275px;left:10%;bottom:24px}.scene-caption{max-width:none;bottom:8px;left:12px;font-size:9px}.scene-message h2{font-size:28px}}
+/* Override older forest-theme selectors, including their hover states. */
+.scene-message .primary,.game-panel .primary{background:#edb6cb;color:#603448;border-color:#d99ab2;box-shadow:0 4px 0 #d99ab2}
+.scene-message .primary:hover,.game-panel .primary:hover{background:#e5a4be!important}
+.game-panel .secondary,.quiz .option,.quiz .option:nth-child(2){background:#fbe8ef;color:#714459;border-color:#e7c0d0;box-shadow:0 3px 0 #edcedb}
+.game-panel .secondary:hover,.quiz .option:hover{background:#f3d4e2;color:#62354b}
+.scene-message>p:not(.eyebrow),.journal-list li,.sound-panel strong,.letter-panel div,.letter-panel small,.collection-panel .text-link,.tabs .selected{color:#775061}
+.tabs .selected{background:#fff5f9}.mini-record{box-shadow:4px 5px 0 #edd2dd;color:#fff1f4}
+.map-panel>img{border-color:#f2dce5}.scene-background{display:none}
+.progress,.progress-track{background:#f3dbe5}.progress-bar,.progress-fill{background:#c67b9a}
+.quiz-symbol,.option-letter{color:#99516e;background:#f8e1eb;border-color:#e8c6d5}
+.type-card,.type-card:hover{border-color:#e8c6d5}.type-card .character-name,.type-card .region,.type-card .card-traits span{color:#795367}
+.result-visual,.record-cover{background:linear-gradient(135deg,#f9e5ee,#f1e8f5)}
+.mail-envelope,.mail-paper textarea::placeholder{color:#956a7d}.mail-example{background:#f6e1ec;color:#795267}
+
+progress{accent-color:#bd6b8e}progress::-webkit-progress-bar{background:#f3dbe5}progress::-webkit-progress-value{background:#bd6b8e}progress::-moz-progress-bar{background:#bd6b8e}
+

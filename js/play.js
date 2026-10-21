@@ -1,4 +1,4 @@
-import {moods,dailyCard,treasures,collect,localDay} from './data/play.js';
+import {moods,dailyCard,treasures,collect,localDay} from './data/play.js?v=pink-play-2';
 const cards=new Map();
 export function renderDaily({main,el,button,link,picture}){
  main.append(el('p','eyebrow','A LITTLE GIFT FOR TODAY'),el('h1','','오늘의 동백 카드'),el('p','lead','오늘 마음은 어떤가요? 동백이가 작은 응원을 준비했어요.'));

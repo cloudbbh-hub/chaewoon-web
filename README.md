@@ -123,3 +123,6 @@ Pages는 main 브랜치의 루트(/)에서 배포합니다. 루트 index.html이
 #/daily: 기분 4종의 응원 카드, 기기 현지 날짜별 미션, 완료 도장. 상태는 메모리에만 유지되며 새로고침 시 초기화됩니다.
 #/treasure: 6개 보물, 중복 수집 방지, 힌트, 재시작, 완성 배지. 페이지 이탈 시 초기화됩니다. Tab/Enter/Space로 조작할 수 있습니다. 별도 이미지 생성이나 외부 라이브러리 없이 구현했습니다. 데이터는 js/data/play.js, 화면은 js/play.js, 스타일은 css/play.css에서 관리합니다.
 
+
+배포 전 node scripts/version-assets.mjs RELEASE_VERSION 을 실행하면 CSS와 JS 및 모듈 import에 버전을 붙입니다. HTML 주소만 바꾸어도 이전 JS가 캐시에 남던 문제를 방지합니다.
+
