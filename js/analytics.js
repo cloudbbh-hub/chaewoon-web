@@ -1,4 +1,4 @@
-import {config} from './config.js?v=pink-play-2';
+import {config} from './config.js?v=rose-journal-1';
 export class Analytics {
  constructor({id='',send=()=>{},load=()=>{}}={}){this.id=id;this.send=send;this.load=load;this.allowed=false;this.loaded=false;this.sent=new Set();}
  consent(value){this.allowed=value===true;if(this.allowed && /^G-[A-Z0-9]+$/.test(this.id) && !this.loaded){this.load(this.id);this.loaded=true;}}

@@ -1,4 +1,4 @@
-import { questions } from './data/questions.js?v=pink-play-2';
+import { questions } from './data/questions.js?v=rose-journal-1';
 export const isType = value => typeof value === 'string' && /^[EI][SN][TF][JP]$/.test(value);
 export function calculateType(answers) {
  if (!Array.isArray(answers) || answers.length !== questions.length) throw new Error('12개의 답변이 필요합니다.');

@@ -8,3 +8,11 @@ export function localDay(date=new Date()){return `${date.getFullYear()}-${String
 export function dailyCard(id,day=localDay()){const mood=moods.find(m=>m.id===id);if(!mood)throw new Error('마음을 다시 골라 주세요.');const seed=[...day].reduce((sum,c)=>sum+c.charCodeAt(0),0);return {...mood,mission:mood.missions[seed%mood.missions.length],day};}
 export const treasures=[{id:'shell',icon:'🐚',name:'분홍 조개'},{id:'flower',icon:'🌸',name:'동백꽃'},{id:'letter',icon:'✉️',name:'바다 편지'},{id:'star',icon:'⭐',name:'작은 별'},{id:'bottle',icon:'🍶',name:'유리병'},{id:'ribbon',icon:'🎀',name:'분홍 리본'}];
 export function collect(found,id){if(!treasures.some(t=>t.id===id))return [...found];return [...new Set([...found,id])];}
+export const treasureStories = {
+ shell:'파도가 오래 다듬은 조개. 서두르지 않아도 나만의 모양은 만들어져요.',
+ flower:'먼 길을 건너온 꽃 한 송이. 오늘의 다정함은 생각보다 가까이에 있어요.',
+ letter:'받는 이 없는 편지에는 이렇게 적혀 있어요. 오늘도 당신의 속도로 걸어요.',
+ star:'모래 위에 내려앉은 작은 별. 사소한 기쁨도 모이면 길을 밝혀 줘요.',
+ bottle:'바다빛을 담은 유리병. 오래 간직하고 싶은 오늘의 순간은 무엇인가요?',
+ ribbon:'바람에 풀린 분홍 리본. 꼭 붙잡고 있던 마음을 잠깐 느슨하게 놓아 보세요.'
+};
