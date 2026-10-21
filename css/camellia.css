@@ -1,0 +1,22 @@
+/* Camellia theme: keep layout and interactions in their existing modules. */
+:root{--paper:#fff7f8;--ink:#593d49;--teal:#9b4967;--muted:#80616d;--line:#efd4de;--mint:#f7e3eb;--blue:#eee7f6;--pink:#f8dce5;--yellow:#fff0dc;--shadow:0 4px 0 #efdce2,0 12px 28px #9b496709}
+body{background:radial-gradient(ellipse at top right,#ffeef1,transparent 60%),repeating-linear-gradient(45deg,transparent 0 46px,#deb4c327 46px 48px,transparent 48px 96px),#f7dce3}
+.game-sidebar{background:#eac0cf;color:var(--ink);background-image:radial-gradient(ellipse at bottom left,#fff4e980,transparent 65%)}
+.village-sign{background:#bc768e;border-color:#ffe2e9;box-shadow:0 5px 0 #a45d7622}.village-sign span,.village-sign small,.village-sign strong{color:#fff7f8}
+.village-nav a,.village-nav button{color:#654250}.village-nav .current,.village-nav .current:hover{background:#fff7f8;color:#843f59;border-color:#f5dce5;box-shadow:0 3px 0 #b77b9122}.village-nav a:hover,.village-nav button:hover{background:#fbe5ed;color:#693b4d}
+.sidebar-note{background:#fff5f54d;border-color:#b8789270}.sidebar-note p,.sidebar-note small,.sidebar-foot{color:#704959}
+.header,main,footer{background:var(--paper);border-color:var(--line)}.header .brand,.page-heading h1,.dashboard-welcome h1,.game-panel h2,.scene-message h2{color:var(--ink)}
+.game-status,.day-label,.pill,.reward-heading .pill{background:#fbe5ed;border-color:var(--line);color:#875269}.game-status:before{color:#af5b7a}
+.village-scene{height:390px;background:radial-gradient(ellipse at 24% 50%,#fff9ed 0 22%,transparent 50%),linear-gradient(120deg,#fbe5eb,#f1cddc);border-color:#ebc7d4;isolation:isolate}
+.village-scene .scene-background{opacity:.09;filter:sepia(.4);pointer-events:none}
+.village-scene .scene-traveler{position:absolute;left:5%;bottom:18px;width:42%;height:345px;object-fit:contain;z-index:1;filter:drop-shadow(0 12px 12px #95576c16)}
+.village-scene .scene-message{left:auto;right:4%;top:50%;transform:translateY(-50%);width:45%;max-width:410px;background:#fff9f5ed;border:1px solid #fff;border-radius:24px;z-index:2;box-shadow:0 8px 30px #a6657b09}.scene-message p,.scene-caption{color:#805366}.scene-caption{z-index:2;background:#fff7f8d9;border-radius:20px;padding:5px 12px}
+.game-panel,.quiz,.result,.type-card,.timeline li,.course-aside,.playlist,.consent{background:#fffafb;border-color:var(--line);box-shadow:var(--shadow)}
+.primary,.hero .primary{background:#f1bdcf;color:#64374a;border-color:#dba1b6;box-shadow:0 4px 0 #dba1b6}.primary:hover{background:#eaa9c0}.secondary,.tabs{background:#fae8ef;color:#714459;border-color:var(--line)}.secondary:hover,.tabs .selected{background:#fff6f9;color:#65354b}
+.option,.option:nth-child(2){background:#fff0f5;border-color:#eac9d7;box-shadow:0 4px 0 #eac9d7}.option:hover,.option:nth-child(2):hover{background:#f8dfe9;border-color:#b76b87}.quiz-symbol{background:radial-gradient(circle at 35% 30%,#fff9f4,#f1cad9);color:#9b4967;border-color:var(--line)}.quiz:after{opacity:.2}.quest-dot,.type-badge,.type-label,.card-traits span,.result .tags span{background:#f8e1ea;color:#80455e;border-color:var(--line)}
+.panel-label,.eyebrow,.text-link,.trait-label,.character-name,.character-story,.destination-card strong,.result-visual .visual-caption{color:#8b526a}.result-visual,.type-card img{background:linear-gradient(140deg,#f9e2eb,#fff5eb);border-color:var(--line)}
+.reward-card,.reward-card:nth-child(2),.reward-card:nth-child(3),.record-cover{background:#f8e5ed;border-color:var(--line);box-shadow:0 3px 0 #ebcdda}.record,.mini-record{background:repeating-radial-gradient(#bc819a 0 3px,#d7a2b8 4px 6px);border-color:#d7a2b8}
+.letter-panel,.letter-panel:hover,.mail-demo,.mail-success{background:#fbe8ef;color:#774b60;border-color:var(--line)}.mail-label,.mail-count,.mail-body,.mail-guide strong,.mail-guide p{color:#775363}.mail-paper textarea{background:repeating-linear-gradient(#fffafb 0 31px,#f1dde5 31px 32px);color:var(--ink);border-color:var(--line)}
+:focus-visible{outline:3px solid #a24f70;outline-offset:4px}
+@media(max-width:1000px) and (min-width:761px){.village-scene .scene-message{width:49%;right:3%;padding:20px}.scene-message h2{font-size:28px}}
+@media(max-width:760px){.game-sidebar{background:#eac0cf}.village-scene{height:555px}.village-scene .scene-message{top:18px;left:16px;right:16px;width:auto;max-width:none;transform:none;padding:20px}.village-scene .scene-traveler{width:80%;height:275px;left:10%;bottom:24px}.scene-caption{max-width:none;bottom:8px;left:12px;font-size:9px}.scene-message h2{font-size:28px}}
